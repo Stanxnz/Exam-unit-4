@@ -1,4 +1,4 @@
-class Game {
+class game {
     constructor({
     title,
     designer,
@@ -29,5 +29,5 @@ class Game {
 
 
 
-export default Game;
+export default game;
 
