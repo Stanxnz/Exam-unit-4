@@ -2,6 +2,11 @@ import game from "../models/game.mjs";
 
 console.log("APP has been Loaded!");
 
+const fileInput = document.getElementById("file-input");
+const fileContentDisplay = document.getElementById("file-content");
+
+let games = [];
+
 function saveGameToStorage(game){
     const uniqueGameKey = `game-${game.title.replace(/\s+/g, '-')}-${Date.now()}`;
     localStorage.setItem(uniqueGameKey, JSON.stringify(game));
@@ -48,5 +53,32 @@ function importGamesFromStorage(jsonString) {
         console.error("error importing the games:", error);
     }
 }
+
+function handleTheSelectedFile(event) {
+    fileContentDisplay.textContent = "";
+    const file = event.target.files[0];
     
+    if (!file) {
+      console.error("No file selected.");
+      return;
+    }
+    
+    const fileReader = new FileReader();
+    fileReader.onload = () => {
+      const fileContent = fileReader.result;
+      importGamesFromStorage(fileContent);
+      games = getAllGamesFromStorage();
+      console.log("Games after importing files:", games);
+    };
+  
+    fileReader.readAsText(file);
+  }
+  
+  document.addEventListener("DOMContentLoaded", () => {
+    if (fileInput) {
+      fileInput.addEventListener("change", handleTheSelectedFile, false);
+    }
+    games = getAllGamesFromStorage();
+    console.log("Games loaded on start:", games);
+  });
   
