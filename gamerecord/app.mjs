@@ -69,16 +69,52 @@ function handleTheSelectedFile(event) {
       importGamesFromStorage(fileContent);
       games = getAllGamesFromStorage();
       console.log("Games after importing files:", games);
+      displayGames();
     };
   
     fileReader.readAsText(file);
   }
   
+  function displayGames() {
+    const gameListContainer = document.getElementById("list-of-games");
+    if (!gameListContainer) {
+        console.error("No game list container found in the HTML.");
+        return;
+    }
+    gameListContainer.innerHTML = "";
+
+    games.forEach(game => {
+        const gameCard = document.createElement("div");
+        gameCard.className = "game-card"; 
+
+        gameCard.innerHTML = `
+            <h3>${game.title}</h3>
+            <p>
+                <strong>Designer:</strong> ${game.designer}<br />
+                <strong>Publisher:</strong> ${game.publisher} | <strong>Year:</strong> ${game.year}<br />
+                <strong>Players:</strong> ${game.players} | <strong>Time:</strong> ${game.time} | <strong>Difficulty:</strong> ${game.difficulty}
+            </p>
+            <p>
+                <strong>Playcount:</strong> ${game.playCount || 0}
+                <button>+</button>
+            </p>
+            <p>
+                <strong>Rating:</strong>
+                <input type="range" min="0" max="10" value="${game.personalRating || 0}" />
+                <span>${game.personalRating || 0}</span>
+            </p>
+        `;
+
+        gameListContainer.appendChild(gameCard);
+    });
+}
+
   document.addEventListener("DOMContentLoaded", () => {
     if (fileInput) {
       fileInput.addEventListener("change", handleTheSelectedFile, false);
     }
     games = getAllGamesFromStorage();
     console.log("Games loaded on start:", games);
+    displayGames();
   });
   
