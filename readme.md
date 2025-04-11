@@ -14,4 +14,4 @@ step 5
 tried to recreate the example 1:1 and then personalised it a bit soo it did not look too boring.
 
 step 6
-need to change a lot on my previous code for this one.
+need to change a lot on my previous code for this one. Worked on it for quite some time, though it was done but now my browser only shows choose file option, so it just removed everything I made so far... It was a spelling mistake between my html file and my mjs file, they did not match so it could not read it correctly. Luckily this is a simple fix instead of having to rewrite it all.
