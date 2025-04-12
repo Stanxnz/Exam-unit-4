@@ -146,7 +146,6 @@ ratingInput.addEventListener("change", (e) => {
 const newGameForm = document.getElementById("new-game-form");
 newGameForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  
 });
 
 if (newGameForm) {
