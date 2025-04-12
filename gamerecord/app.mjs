@@ -143,6 +143,35 @@ ratingInput.addEventListener("change", (e) => {
     });
 }
 
+const newGameForm = document.getElementById("new-game-form");
+newGameForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  
+});
+
+if (newGameForm) {
+  newGameForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const newGame = {
+          title: document.getElementById("title").value,
+          designer: document.getElementById("designer").value,
+          artist: document.getElementById("artist").value,
+          publisher: document.getElementById("publisher").value,
+          year: parseInt(document.getElementById("year").value, 10),
+          players: document.getElementById("players").value,
+          time: document.getElementById("time").value,
+          difficulty: document.getElementById("difficulty").value,
+          url: document.getElementById("url").value,
+          playCount: 0, 
+          personalRating: parseInt(document.getElementById("personalRating").value, 10)
+      };
+      saveGameToStorage(newGame);
+      games = getAllGamesFromStorage();
+      displayGames();
+      newGameForm.reset();
+  });
+}
+
   document.addEventListener("DOMContentLoaded", () => {
     if (fileInput) {
       fileInput.addEventListener("change", handleTheSelectedFile, false);

@@ -10,7 +10,50 @@
 <body>
     <input type="file" id="file-input"/>
     <div id="file-content"></div>
-
+    <form id="new-game-form">
+        <h2>Add a New Game</h2>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required />
+        <br />
+    
+        <label for="designer">Designer:</label>
+        <input type="text" id="designer" name="designer" required />
+        <br />
+    
+        <label for="artist">Artist:</label>
+        <input type="text" id="artist" name="artist" required />
+        <br />
+    
+        <label for="publisher">Publisher:</label>
+        <input type="text" id="publisher" name="publisher" required />
+        <br />
+    
+        <label for="year">Year:</label>
+        <input type="number" id="year" name="year" required />
+        <br />
+    
+        <label for="players">Players:</label>
+        <input type="text" id="players" name="players" required />
+        <br />
+    
+        <label for="time">Time:</label>
+        <input type="text" id="time" name="time" required />
+        <br />
+    
+        <label for="difficulty">Difficulty:</label>
+        <input type="text" id="difficulty" name="difficulty" required />
+        <br />
+    
+        <label for="url">URL:</label>
+        <input type="url" id="url" name="url" required />
+        <br />
+    
+        <label for="personalRating">Personal Rating:</label>
+        <input type="number" id="personalRating" name="personalRating" min="0" max="10" value="0" />
+        <br />
+    
+        <button type="submit">Add Game</button>
+      </form>
     <div id="list-of-games"></div>
 
     <script src="app.mjs" type="module"></script>
