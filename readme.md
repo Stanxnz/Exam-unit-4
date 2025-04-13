@@ -26,3 +26,4 @@ step 9
 again very similar to the task we had previously, need to implement code so I can delete games. Used similar code aswell, also used the same icon as the delete button as a little extra.
 
 step 10
+Looked like way more work then it actually was. Once I understood I just needed to make a general sorting function instead of a lot of different ones as I thought it would be. The player count was the trickiest because it is on ranges 1-5 for example, but luckily made it work with some mozilla and w3schools on my side.
