@@ -7,8 +7,19 @@
     <title>Game Import</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <input type="file" id="file-input"/>
+    <div id="sorting-ui">
+        <label for="sort-criteria">Sort by:</label>
+        <select id="sort-criteria">
+          <option value="players">Player Count</option>
+          <option value="personalRating">Rating</option>
+          <option value="difficulty">Difficulty</option>
+          <option value="playCount">Play Count</option>
+        </select>
+        <button id="sort-button">Sort</button>
+      </div>
     <div id="file-content"></div>
     <form id="new-game-form">
         <h2>Add a New Game</h2>
@@ -57,5 +68,6 @@
     <div id="list-of-games"></div>
 
     <script src="app.mjs" type="module"></script>
+    
 </body>
 </html>

@@ -4,6 +4,8 @@ console.log("APP has been Loaded!");
 
 const fileInput = document.getElementById("file-input");
 const fileContentDisplay = document.getElementById("file-content");
+const sortCriteriaSelect = document.getElementById("sort-criteria");
+const sortButton = document.getElementById("sort-button");
 
 
 let games = [];
@@ -178,6 +180,27 @@ if (newGameForm) {
   });
 }
 
+function sortGames(criteria) {
+  games.sort((a, b) => {
+    const gameA = a.game;
+    const gameB = b.game;
+    
+    if(criteria === "players") {
+      const minA = parseInt(gameA.players.split("-")[0], 10) || 0;
+      const minB = parseInt(gameB.players.split("-")[0], 10) || 0;
+      return minA - minB;
+    } else if(criteria === "personalRating") {
+      return (gameA.personalRating || 0) - (gameB.personalRating || 0);
+    } else if(criteria === "difficulty") {
+      return gameA.difficulty.localeCompare(gameB.difficulty);
+    } else if(criteria === "playCount") {
+      return (gameA.playCount || 0) - (gameB.playCount || 0);
+    }
+    
+    return 0;
+  });
+}
+
   document.addEventListener("DOMContentLoaded", () => {
     if (fileInput) {
       fileInput.addEventListener("change", handleTheSelectedFile, false);
@@ -186,4 +209,11 @@ if (newGameForm) {
     console.log("Games loaded on start:", games);
     displayGames();
   });
-  
+
+  if (sortCriteriaSelect && sortButton) {
+  sortButton.addEventListener("click", () => {
+    const criteria = sortCriteriaSelect.value;
+    sortGames(criteria);
+    displayGames();
+  });
+}
