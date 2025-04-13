@@ -111,8 +111,8 @@ function handleTheSelectedFile(event) {
           <input type="range" class="rating-range" min="0" max="10" value="${game.personalRating || 0}" />
 
           <span class="rating-value">${game.personalRating || 0}</span>
-
       </p>
+    <button class="btn-delete">🗑️</button>
     `;
 
 const playCountButton = gameCard.querySelector(".btn-playcount");
@@ -137,6 +137,13 @@ ratingInput.addEventListener("change", (e) => {
   ratingValueDisplay.textContent = newRating;
   
   games = getAllGamesFromStorage();
+    });
+
+    const deleteButton = gameCard.querySelector(".btn-delete");
+    deleteButton.addEventListener("click", () => {
+      localStorage.removeItem(key);
+      games = getAllGamesFromStorage();
+      displayGames();
     });
 
     gameListContainer.appendChild(gameCard);

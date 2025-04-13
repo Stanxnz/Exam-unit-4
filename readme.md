@@ -20,3 +20,9 @@ step 7
 Task seemd pretty straighforward and I thought I nailed it pretty fast too. But when I ran the code in the live server I saw that the saved games where not showcased anymore. I fixed this by adding a const that ensured the correct addgame id was getting used when it needed to, which worked as expected.
 
 step 8
+well I thought this was task seven haha, but yea made a function that was needed to make the new html code work together with my actual mjs code.
+
+step 9
+again very similar to the task we had previously, need to implement code so I can delete games. Used similar code aswell, also used the same icon as the delete button as a little extra.
+
+step 10
